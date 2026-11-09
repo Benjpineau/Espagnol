@@ -16,6 +16,30 @@ Sur macOS / Linux, utilisez `python3 server.py` si nécessaire ; sur Windows, `p
 
 Ouvrez **http://localhost:8000** dans votre navigateur. Gardez le terminal ouvert ; `Ctrl+C` arrête le serveur. Si le port est occupé : `python server.py --port 8080` puis ouvrez http://localhost:8080. Le serveur écoute uniquement sur votre ordinateur (127.0.0.1). N’ouvrez pas directement `static/index.html` et ne l’exposez pas sur Internet.
 
+## Environnement virtuel (facultatif)
+
+L’application utilise uniquement la bibliothèque standard de Python : `requirements.txt` ne contient donc aucun paquet externe. Vous pouvez tout de même isoler votre environnement.
+
+Sur macOS / Linux :
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python server.py
+```
+
+Sur Windows (PowerShell) :
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python server.py
+```
+
+Si PowerShell bloque l’activation, utilisez directement `.\.venv\Scripts\python.exe server.py`. Pour quitter un environnement activé : `deactivate`. Le dossier `.venv/` est exclu de Git.
+
 ## Trois espaces
 
 - **Vocabulaire** : espagnol → français, français → espagnol ou répartition 50/50, nombre d’entrées au choix, filtre mots / expressions, tirage aléatoire sans répétition, correction et révision des erreurs. Pour un nombre impair, le mode mixte contient une question espagnol → français de plus.
